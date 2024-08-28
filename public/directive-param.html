@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 这里动态参数绑定的变量名中有大写，将无法正确引用到href属性 -->
+    <a :[attrName]="targetLink">Click</a>
+  </div>
+  <script type="module">
+    import { createApp } from 'vue'
+  
+    createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+          attrName: 'href',
+          attrname: 'class',
+          targetLink: 'https://www.baidu.com',
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>
